@@ -884,4 +884,33 @@ function withoutX(givenStr) {
   console.log(withoutX("Hxix"));
   console.log(withoutX("Hello?"));
   
-  /// fart dick
+  /*
+Goals: return a given string without any x's within first two chars;
+Params: String1: givenStr
+Return Val: String;
+Logic:  if first 2 chars of givenStr are 'xx', return givenStr without first 2 chars
+        or if 1st char is 'x', return givenStr without 1st char
+        or if 2nd char is 'x', return givenStr without 2nd char;
+
+Given a string, if one or both of the first 2 chars is 'x', return the string without those 'x' chars, and otherwise return the string unchanged. This is a little harder than it looks.
+
+
+withoutX2("xHi") → "Hi"
+withoutX2("Hxi") → "Hi"
+withoutX2("Hi") → "Hi"
+*/
+
+function withoutX2(givenStr) {
+  if (givenStr.substring(0, 2) === 'xx') {
+    return givenStr.substring(2);
+  } if (givenStr.substring(0, 1) === 'x') {
+    return givenStr.substring(1);
+  } if (givenStr.substring(1, 2) === 'x') {
+    return givenStr.substring(0, 1) + givenStr.substring(2);
+  } return givenStr;
+}
+
+console.log(withoutX2("xHi"));
+console.log(withoutX2("Hxi"));
+console.log(withoutX2("Hi"));
+
