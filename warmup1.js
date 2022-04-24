@@ -695,3 +695,40 @@ in3050(30, 41) → false
 in3050(40, 50) → true
 */
 
+
+
+
+
+/*
+Goals: return true if there are 1-3 'e's in a given string, otherwise return false;
+Params: String1: givenStr, Number1: count
+Return Val: Boolean;
+Logic:  run a loop iterating through given string
+        if char at current index is 'e', add 1 to 'count'
+        if 'count' is between 1 and 3, return 'true'
+        otherwise return false;
+  
+Return true if the given string contains between 1 and 3 'e' chars.
+
+stringE("Hello") → true
+stringE("Heelle") → true
+stringE("Heelele") → false
+*/
+
+function stringE(givenStr) {
+  let count = 0;
+  for (let i = 0; i <= givenStr.length; i++) {
+    if (givenStr.charAt(i) === "e") {
+      count++;
+    }
+  }
+  if (count >= 1 && count <= 3) {
+    return true;
+  }
+  return false;
+}
+
+console.log(stringE("Hello"));
+console.log(stringE("Heelle"));
+console.log(stringE("Heelele"));
+
