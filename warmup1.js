@@ -683,10 +683,12 @@ console.log(close10(13, 8));
 console.log(close10(13, 7));
 
 /*
-Goals: 
-Params: 
-Return Val: 
-Logic:  
+Goals: Return true if both given values are between 30 and 40 (inc) or 40 and 50 (inc);
+Params: Number1: num1, Number2: num2;
+Return Val: Boolean;
+Logic:  If num1 is >= 30 && <= 40, if so check if num2 meets the same req, and if so return true, otherwise...
+        check if num1 >= 40 && <= 50, if so check if num2 meets the same req, and if so return true...
+        otherwise return false;
 
 Given 2 int values, return true if they are both in the range 30..40 inclusive, or they are both in the range 40..50 inclusive.
 
@@ -695,9 +697,48 @@ in3050(30, 41) → false
 in3050(40, 50) → true
 */
 
+function in3050(num1, num2) {
+  if (num1 >= 30 && num1 <= 40) {
+    if (num2 >= 30 && num2 <= 40) {
+      return true;
+    }
+  }
+  if (num1 >= 40 && num1 <= 50) {
+    if (num2 >= 40 && num2 <= 50) {
+      return true;
+    }
+  }
+  return false;
+}
 
+console.log(in3050(30, 31));
+console.log(in3050(30, 41));
+console.log(in3050(40, 50));
 
+/*
+Goals: Return the larger of 2 given numbers if between 10 and 20 (inc), or return 0 if neither are in that range.
+Params: Number1: num1, Number2: num2;
+Return Val: Number;
+Logic: if num1 & num2 are >= 10 OR <= 20, return the higher number
+      otherwise return 0;
 
+Given 2 positive int values, return the larger value that is in the range 10..20 inclusive, or return 0 if neither is in that range.
+
+max1020(11, 19) → 19
+max1020(19, 11) → 19
+max1020(11, 9) → 11
+*/
+
+function max1020(num1, num2) {
+  if ((num1 && num2) >= 10 || (num1 && num2) <= 20) {
+    return Math.max(num1, num2);
+  }
+  return 0;
+}
+
+console.log(max1020(11, 19));
+console.log(max1020(19, 11));
+console.log(max1020(11, 9));
 
 /*
 Goals: return true if there are 1-3 'e's in a given string, otherwise return false;
@@ -732,4 +773,66 @@ console.log(stringE("Hello"));
 console.log(stringE("Heelle"));
 console.log(stringE("Heelele"));
 
-// Testy yeah again
+/*
+Goals: Return true if both given numbers share the same 'last' digit, else return false;
+Params: Number1: i, Number2: j;
+Return Val: Boolean;
+Logic:  if remainder of (i & j)/10 are equal, return true
+        otherwise return false;
+
+Given two non-negative int values, return true if they have the same last digit, such as with 27 and 57. Note that the % "mod" operator computes remainders, so 17 % 10 is 7.
+
+lastDigit(7, 17) → true
+lastDigit(6, 17) → false
+lastDigit(3, 113) → true
+*/
+
+const lastDigit = (i, j) => (i % 10 === j % 10 ? true : false);
+
+console.log(lastDigit(7, 17));
+console.log(lastDigit(6, 17));
+console.log(lastDigit(3, 113));
+
+// OOOORRRRRRR
+
+function lastDigit(i, j) {
+  if (i % 10 === j % 10) {
+    return true;
+  }
+  return false;
+}
+
+console.log(lastDigit(7, 17));
+console.log(lastDigit(6, 17));
+console.log(lastDigit(3, 113));
+
+
+/*
+Goals: Return given string having capitalized the last 3 chars, unless given string length < 3, then return capitzlized version;
+Params: String1: str1, String2: str2;
+Return Val: String;
+Logic:  if length of str1 >= 3, 
+          define str2 as a substring of str1 beginning at (str1.length - 3)
+          return a substring of str1 (beginning at 0 and ending at str1.length - 3,) + str2
+        otherwise return a capitalized version of str1;
+
+Given a string, return a new string where the last 3 chars are now in upper case. If the string has less than 3 chars, uppercase whatever is there. Note that str.toUpperCase() returns the uppercase version of a string.
+
+endUp("Hello") → "HeLLO"
+endUp("hi there") → "hi thERE"
+endUp("hi") → "HI"
+*/
+
+function endUp(str1) {
+  if (str1.length >= 3) {
+    let str2 = str1.substring(str1.length - 3);
+    let str3 = str2.toUpperCase();
+    return str1.substring(0, str1.length - 3) + str3;
+  }
+  return str1.toUpperCase();
+}
+
+console.log(endUp("Hello"));
+console.log(endUp("hi there"));
+console.log(endUp("hi"));
+
