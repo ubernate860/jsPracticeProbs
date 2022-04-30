@@ -836,3 +836,28 @@ console.log(endUp("Hello"));
 console.log(endUp("hi there"));
 console.log(endUp("hi"));
 
+/*
+Goals: Return the first char of given string and then every "nth" char;
+Params: String1: str, Number1: n;
+Return Val: String;
+Logic:  
+
+Given a non-empty string and an int N, return the string made starting with char 0, and then every Nth char of the string. So if N is 3, use char 0, 3, 6, ... and so on. N is 1 or more.
+
+everyNth("Miracle", 2) → "Mrce" 
+everyNth("abcdefg", 2) → "aceg"
+everyNth("abcdefg", 3) → "adg"
+*/
+
+function everyNth(str, n) {
+  let newStr = str.substring(0, 1);
+  for (let i = n; n <= str.length; n += i) {
+    newStr += str.substr(n, 1);
+  }
+  return newStr;
+}
+
+console.log(everyNth("Miracle", 2));
+console.log(everyNth("abcdefg", 2));
+console.log(everyNth("abcdefg", 3));
+
