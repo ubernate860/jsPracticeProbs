@@ -538,7 +538,9 @@ function hasTeen(i, j, k) {
 console.log(hasTeen(13, 20, 10));
 console.log(hasTeen(20, 19, 10));
 console.log(hasTeen(20, 10, 13));
+//OORRR
 
+const hasTeen = (i, j, k) => i >= 13 && i <= 19 || j >= 13 && j <= 19 || k >= 13 && k <=19;
 /*
 Goals: if one of given numbers is between 13 and 19 (inclusive), unless neither or both
 Params: Num1: i, Num2: j, Num3: k
@@ -564,6 +566,17 @@ function loneTeen(i, j) {
 console.log(loneTeen(13, 99));
 console.log(loneTeen(21, 19));
 console.log(loneTeen(13, 13));
+//OOORRR 
+
+const loneTeen = (i, j) => {
+  let chkT = (a) => {
+      return a >= 13 && a <= 19
+  };
+  let chkI = chkT(i);
+  let chkJ = chkT(j);
+  //     CAN also check for false with '!chkI' or '!chkJ'
+  return (chkI && chkI != chkJ || chkJ && chkI != chkJ);
+};
 
 /*
 Goals: if one of given numbers is between 13 and 19 (inclusive), unless neither or both
@@ -593,6 +606,12 @@ console.log(delDel("adedbc"));
 function delDel(str) {
   return (str.substring(1,4) === "del" ? str.substring(0,1) + str.substring(4) : str);
 }
+// OR
+
+const delDel = str => str.indexOf('del') === 1
+                    ? str.substr(0, 1) + str.substr(4)
+                    : str;
+
 
 /*
 Goals: return true if given string begins with "(i)ix"
@@ -621,6 +640,8 @@ console.log(mixStart("piz snacks"));
 // OR TERNARY ....
 
 const mixStart = str => str.substring(1,3) === 'ix' ? true : false;
+
+const mixStart = (str) => str.startsWith('ix', 1);
 
 /*
 Goals: return a string of the first and/or second character if they are o and/or z respectively;
@@ -651,6 +672,16 @@ function startOz(str) {
 console.log(startOz("ozymandias"));
 console.log(startOz("bzoo"));
 console.log(startOz("oxx"));
+
+//OR 
+
+const startOz = str => str.charAt(0) === 'o' && str.charAt(1) === 'z' 
+    ? str.substr(0, 2) // returns oz
+    : str.charAt(0) === 'o'
+    ? str.substr(0, 1) // returns o
+    : str.charAt(1) === 'z'
+    ? str.substr(1, 1) // returns z
+    : str.substr(0, 2);
 
 /*
 Goals: return highest value of given numbers
@@ -699,6 +730,17 @@ function close10(a, b) {
 console.log(close10(8, 13));
 console.log(close10(13, 8));
 console.log(close10(13, 7));
+// OORR
+
+const close10 = (i, j) => {
+  let totI = Math.abs(i - 10);
+  let totJ = Math.abs(j - 10);
+  if (totI === totJ) {
+      return 0;
+  } if (totI > totJ) {
+      return j;
+  }   return i;
+};
 
 /*
 Goals: Return true if both given values are between 30 and 40 (inc) or 40 and 50 (inc);
@@ -752,6 +794,15 @@ function max1020(num1, num2) {
     return Math.max(num1, num2);
   }
   return 0;
+};
+
+//OORRR
+
+const max1020 = (i, j) => {
+  if (i>=10 && i<=20 || j>=10 && j<=20) {
+      return Math.max(i, j);
+  }
+  return 0;
 }
 
 console.log(max1020(11, 19));
@@ -785,6 +836,17 @@ function stringE(givenStr) {
     return true;
   }
   return false;
+}
+// OORR
+
+const stringE = str => {
+  let total = 0;
+  for (i = 0;i < str.length; i++) {
+      if (str.charAt(i) === 'e') {
+          total++;
+      }
+  }
+  return total >= 1 && total <= 3;
 }
 
 console.log(stringE("Hello"));
@@ -820,6 +882,10 @@ function lastDigit(i, j) {
   return false;
 }
 
+//OORRR
+
+const lastDigit = (i, j) => i % 10 === j % 10;
+
 console.log(lastDigit(7, 17));
 console.log(lastDigit(6, 17));
 console.log(lastDigit(3, 113));
@@ -850,6 +916,15 @@ function endUp(str1) {
   return str1.toUpperCase();
 }
 
+//OORR
+
+const endUp = str => {if (str.length < 3) {
+  return str.toUpperCase();
+  }
+  let lastThree = str.substr(str.length - 3, 3);
+  return str.substring(0, str.length - 3) + lastThree.toUpperCase(str.length - 3);
+};
+
 console.log(endUp("Hello"));
 console.log(endUp("hi there"));
 console.log(endUp("hi"));
@@ -873,6 +948,15 @@ function everyNth(str, n) {
     newStr += str.substr(n, 1);
   }
   return newStr;
+}
+
+//OORRR
+
+const everyNth = (str, i) => {
+  let strTwo = str.substr(0, 1);
+  for (let j = i; j <= str.length; j += i) {
+      strTwo += str.substr(j, 1);
+  } return strTwo;
 }
 
 console.log(everyNth("Miracle", 2));
