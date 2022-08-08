@@ -166,6 +166,10 @@ function makes10(a, b) {
   console.log(makes10(9, 9));
   console.log(makes10(1, 9));
 
+  // OOOOOORRRRR
+
+  const makes10 = (i, j) => i === 10 || j === 10 || (i+j) === 10 ? true : false;
+
 /*
 Goals: return true if n is within 10 of 100 or 200
 Params: Number1: n;

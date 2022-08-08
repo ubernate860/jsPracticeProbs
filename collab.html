@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+     
+
+<!-- 
+Given a string, take the first 2 chars and return the string with the 2 chars added at both the front and back, so "kitten" yields"kikittenki". If the string length is less than 2, use whatever chars are there.
+
+
+front22("kitten") → "kikittenki"
+front22("Ha") → "HaHaHa"
+front22("abc") → "ababcab"
+
+NEXT PROBLEM
+
+Given a string, return true if the string starts with "hi" and false otherwise.
+
+
+startHi("hi there") → true
+startHi("hi") → true
+startHi("hello hi") → false
+
+NEXT PROBLEM
+
+Given two temperatures, return true if one is less than 0 and the other is greater than 100.
+
+
+icyHot(120, -1) → true
+icyHot(-1, 120) → true
+icyHot(2, 120) → false
+-->
+
+
+<script>
+const front22 = str => str.length <= 2 ? str.repeat(3) : str.substr(0, 2) + str + str.substr(0, 2);
+
+
+console.log(front22("kitten"));
+console.log(front22("Ha"));
+console.log(front22("abc"));
+
+const startHi = str => str.startsWith('hi');
+
+console.log(startHi("hi there"));
+console.log(startHi("hi"));
+console.log(startHi("hello hi"));
+
+               //  if one is below 0 and other above *AND* difference is > 100, return true
+const icyHot = (i, j) => Math.sign(i) != Math.sign(j) && Math.abs(i - j) >= 100;
+
+console.log(icyHot(120, -1));
+console.log(icyHot(-1, 120));
+console.log(icyHot(2, 120));
+
+// `strings go anywhere around ${insert javascript here} strings go here too!`
+
+/* mdn closure. lexical scoping. prototype chain, JSON, constructor functions, classes.
+*/
+
+
+
+
+       </script>
+    </body>
+</html>
