@@ -426,6 +426,9 @@ function front22(str) {
   console.log(front22("Ha"));
   console.log(front22("abc"));
 
+//OOOORRRRR
+const front22 = str => str.length <= 2 ? str.repeat(3) : str.substr(0, 2) + str + str.substr(0, 2);
+
   /*
 Goals: 
 Params: Number: 
@@ -447,6 +450,9 @@ function startHi(str) {
   console.log(startHi("hi there"));
   console.log(startHi("hi"));
   console.log(startHi("hello hi"));
+
+//OOOORRRRRR
+const startHi = str => str.startsWith('hi');
 
 /*
 Goals: 
@@ -474,6 +480,10 @@ function icyHot(i, j) {
   console.log(icyHot(-1, 120));
   console.log(icyHot(2, 120));
 
+// OOOORRRRRR 
+
+const icyHot = (i, j) => Math.sign(i) != Math.sign(j) && (i > 100 || j > 100);
+
   /*
 Goals: 
 Params: Number: 
@@ -498,6 +508,10 @@ function in1020(i, j) {
   console.log(in1020(12, 99));
   console.log(in1020(21, 12));
   console.log(in1020(8, 99));
+
+//OOORRRR
+
+const in1020 = (i, j) => i >= 10 && i <= 20 || j >= 10 && j <= 20;
 
 /*
 Goals: return true if one or more arguments are between/equal to 13 and 19;

@@ -13,53 +13,22 @@
      
 
 <!-- 
-Given a string, take the first 2 chars and return the string with the 2 chars added at both the front and back, so "kitten" yields"kikittenki". If the string length is less than 2, use whatever chars are there.
+We'll say that a number is "teen" if it is in the range 13..19 inclusive. Given 3 int values, return true if 1 or more of them are teen.
 
 
-front22("kitten") → "kikittenki"
-front22("Ha") → "HaHaHa"
-front22("abc") → "ababcab"
-
-NEXT PROBLEM
-
-Given a string, return true if the string starts with "hi" and false otherwise.
-
-
-startHi("hi there") → true
-startHi("hi") → true
-startHi("hello hi") → false
-
-NEXT PROBLEM
-
-Given two temperatures, return true if one is less than 0 and the other is greater than 100.
-
-
-icyHot(120, -1) → true
-icyHot(-1, 120) → true
-icyHot(2, 120) → false
+hasTeen(13, 20, 10) → true
+hasTeen(20, 19, 10) → true
+hasTeen(20, 10, 13) → true
 -->
 
 
 <script>
-const front22 = str => str.length <= 2 ? str.repeat(3) : str.substr(0, 2) + str + str.substr(0, 2);
 
 
-console.log(front22("kitten"));
-console.log(front22("Ha"));
-console.log(front22("abc"));
+console.log(hasTeen(13, 20, 10));
+console.log(hasTeen(20, 19, 10));
+console.log(hasTeen(20, 10, 13));
 
-const startHi = str => str.startsWith('hi');
-
-console.log(startHi("hi there"));
-console.log(startHi("hi"));
-console.log(startHi("hello hi"));
-
-               //  if one is below 0 and other above *AND* difference is > 100, return true
-const icyHot = (i, j) => Math.sign(i) != Math.sign(j) && Math.abs(i - j) >= 100;
-
-console.log(icyHot(120, -1));
-console.log(icyHot(-1, 120));
-console.log(icyHot(2, 120));
 
 // `strings go anywhere around ${insert javascript here} strings go here too!`
 
