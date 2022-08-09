@@ -18,11 +18,19 @@
 
 
 <script>
+const stringTimes = (str, i) => str.repeat(i);
 
+console.log(stringTimes("Hi", 2));
+console.log(stringTimes("Hi", 3));
+console.log(stringTimes("Hi", 1));
 
-console.log(everyNth("Miracle", 2));
-console.log(everyNth("abcdefg", 2));
-console.log(everyNth("abcdefg", 3));
+const frontTimes = (str, i) => str.length < 3 ? str.substring(0).repeat(i)
+    : str.substr(0, 3).repeat(i);
+
+console.log(frontTimes("Chocolate", 2));
+console.log(frontTimes("Chocolate", 3));
+console.log(frontTimes("Abc", 3));
+console.log(frontTimes("Ab", 3));
 
 // `strings go anywhere around ${insert javascript here} strings go here too!`
 
