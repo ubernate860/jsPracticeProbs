@@ -13,7 +13,41 @@
      
 
 <!-- 
+Goals: return 'n' copies of given string;
+Params: String1: str, String2: newStr, Number1: i;
+Return Val: String;
+Logic: return str, repeated 'n' times
 
+Given a string and a non-negative int n, return a larger string that is n copies of the original string.
+
+stringTimes("Hi", 2) → "HiHi"
+stringTimes("Hi", 3) → "HiHiHi"
+stringTimes("Hi", 1) → "Hi"
+
+    Goals: return a given number copies of a given string's first 3 chars;
+Params: String1: str, Number1: i;
+Return Val: String;
+Logic: if str length < 3, return 'i' copies of str. otherwise return 'i' copies of str's first 3 chars
+
+Given a string and a non-negative int n, we'll say that the front of the string is the first 3 chars, or whatever is there if the string is less than length 3. Return n copies of the front;
+
+frontTimes("Chocolate", 2) → "ChoCho"
+frontTimes("Chocolate", 3) → "ChoChoCho"
+frontTimes("Abc", 3) → "AbcAbcAbc"
+
+    Goals: count and return total number of "xx" occurances in given string;
+Params: String1: str, Number1: count, Number2: i;
+Return Val: Number;
+Logic: create a variable named count
+using a for loop, check 'str' for "xx" moving one char at a time.
+if str.substr(i, 2), add one to 'count'
+}return 'count';
+
+Count the number of "xx" in the given string. We'll say that overlapping is allowed, so "xxx" contains 2 "xx".
+
+countXX("abcxx") → 1
+countXX("xxx") → 2
+countXX("xxxx") → 3
 -->
 
 
@@ -44,6 +78,114 @@ const countXX = str => {
 console.log(countXX("abcxx"));
 console.log(countXX("xxx"));
 console.log(countXX("xxxx"));
+
+const doubleX = str => {
+    for (i = 0; i < str.length - 1; i++) {
+        if (str.indexOf('x') === str.indexOf('xx')) {
+            return true;
+        }
+    } return false;
+}
+
+console.log(doubleX("axxbb"));
+console.log(doubleX("axaxaxx"));
+console.log(doubleX("xxxxx"));
+
+const stringBits = str => {
+    let str2 = "";
+    for (i = 0; i < str.length; i+= 2) {
+        str2 += str[i];
+    }
+    return str2;
+}
+
+console.log(stringBits("Hello"));
+console.log(stringBits("Hi"));
+console.log(stringBits("Heeololeo"));
+
+const stringSplosion = str => {
+    let str2 = "";
+    for (j = 1; j <= str.length; j++) {
+        str2 += str.substr(0, j);
+    } return str2;
+}
+
+console.log(stringSplosion("Code"));
+console.log(stringSplosion("abc"));
+console.log(stringSplosion("ab"));
+
+const last2 = str => {
+    let count = 0;
+    for (i = 0; i < str.length - 2; i++) {
+        if (str.substr(i, 2) === str.substr(str.length -2, 2)) {
+            count++;
+        }
+    } return count;
+}
+
+console.log(last2("hixxhi"));
+console.log(last2("xaxxaxaxx"));
+console.log(last2("axxxaaxx"));
+
+const arrayCount9 = arr => {
+    let count = 0;
+    for (i = 0; i < arr.length; i++) {
+        if (arr[i] === 9){
+            count++;
+        }
+    } return count;
+}
+
+console.log(arrayCount9([1, 2, 9]));
+console.log(arrayCount9([1, 9, 9]));
+console.log(arrayCount9([1, 9, 9, 3, 9]));
+console.log(arrayCount9([9,5,9,7,5,9,5,3,9]));// 4
+
+const arrayFront9 = arr => {
+    for (i = 0; i < 4; i++) {
+        if (arr[i] === 9) {
+            return true;
+        }
+    } return false;
+}
+
+console.log(arrayFront9([1, 2, 9, 3, 4]));
+console.log(arrayFront9([1, 2, 3, 4, 9]));
+console.log(arrayFront9([1, 2, 3, 4, 5]));
+console.log(arrayFront9([9, 3])); // T
+console.log(arrayFront9([2, 3, 4]));// F
+/*
+const array123 = arr => {
+    // searches arr for 1
+    for (i = 0;i < arr.length - 2;i++) {
+        if (arr[i] === 1) {
+            //checks if next index is 2
+            if (arr[i+1] === 2) { 
+                 // checks if next index is 3
+                if (arr[i+2] === 3){
+                    return true;
+                }
+            }
+        }
+    } return false;
+}
+*/
+//OOOOOORRRRRR
+
+const array123 = arr => {
+    //loops through arr searching for a 1
+    for (i = 0; i < arr.length - 2; i++) {
+        //checks arr[i] and following to indexes for [1,2,3]
+        if (arr[i] === 1 && arr[i+1] === 2 && arr[i+2] === 3) {
+            return true;   
+            }
+        } return false;
+}
+
+console.log(array123([1, 1, 2, 3, 1]));
+console.log(array123([1, 1, 2, 4, 1]));
+console.log(array123([1, 1, 2, 1, 2, 3]));
+
 
 // `strings go anywhere around ${insert javascript here} strings go here too!`
 
