@@ -32,6 +32,19 @@ console.log(frontTimes("Chocolate", 3));
 console.log(frontTimes("Abc", 3));
 console.log(frontTimes("Ab", 3));
 
+const countXX = str => {
+    let count = 0;
+    for (i = 0; i < str.length - 1; i++) {
+        if (str.substr(i, 2) === "xx") {
+            count++;
+        }
+    } return count;
+}
+
+console.log(countXX("abcxx"));
+console.log(countXX("xxx"));
+console.log(countXX("xxxx"));
+
 // `strings go anywhere around ${insert javascript here} strings go here too!`
 
 /* mdn closure. lexical scoping. prototype chain, JSON, constructor functions, classes.

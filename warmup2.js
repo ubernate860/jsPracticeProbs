@@ -45,7 +45,8 @@ Params: String1: str, Number1: count, Number2: i;
 Return Val: Number;
 Logic: create a variable named count
 using a for loop, check 'str' for "xx" moving one char at a time.
-if 
+if str.substr(i, 2), add one to 'count'
+}return 'count';
 
 Count the number of "xx" in the given string. We'll say that overlapping is allowed, so "xxx" contains 2 "xx".
 
@@ -53,7 +54,18 @@ countXX("abcxx") → 1
 countXX("xxx") → 2
 countXX("xxxx") → 3
 */
+const countXX = str => {
+    let count = 0;
+    for (i = 0; i < str.length - 1; i++) {
+        if (str.substr(i, 2) === "xx") {
+            count++;
+        }
+    } return count;
+}
 
+console.log(countXX("abcxx"));
+console.log(countXX("xxx"));
+console.log(countXX("xxxx"));
 /*
 Goals: 
 Params: 
